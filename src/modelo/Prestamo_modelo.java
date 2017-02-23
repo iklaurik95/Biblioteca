@@ -49,7 +49,7 @@ public class Prestamo_modelo extends Conector{
 	public void insert (Prestamo prestamo){
 		
 	}
-		//fddgfdgdfg
+	
 		
 	}
 
