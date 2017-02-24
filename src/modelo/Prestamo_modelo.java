@@ -46,10 +46,6 @@ public class Prestamo_modelo extends Conector{
 		return null;
 	}
 	
-	public void insert (Prestamo prestamo){
-		
-	}
-	
 		
 	}
 
