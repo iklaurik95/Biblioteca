@@ -1,6 +1,7 @@
 package principal;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -17,6 +18,7 @@ public class Main {
 	public final static int BORRAR_LIBRO_MEDIANTE_ID = 7;
 	public final static int BORRAR_SOCIO_MEDIANTE_ID = 8;
 	public final static int LIBROS_DE_AUTOR = 9;
+	public final static int REALIZAR_PRESTAMO = 10;
 	public final static int SALIR = 0;
 	
 
@@ -30,6 +32,7 @@ public class Main {
 
 		Libro_modelo lm = new Libro_modelo("biblioteka");
 		Socio_modelo sm = new Socio_modelo("biblioteka");
+		Prestamo_modelo pm = new Prestamo_modelo("biblioteka");
 		
 		Scanner scan = new Scanner(System.in);
 
@@ -45,6 +48,7 @@ public class Main {
 			System.out.println("7. Borrar libro mediante id");
 			System.out.println("8. Borrar socio mediante id");
 			System.out.println("9. Ver libros de autor");
+			System.out.println("10. Realizar prestamo"); 
 			System.out.println("0. Salir del menú\n");
 			
 			opcion = Integer.parseInt(scan.nextLine());
@@ -140,6 +144,16 @@ public class Main {
 					il.next().mostrarInfo();
 				}
 						
+				break;
+				
+			case REALIZAR_PRESTAMO:
+				System.out.println("Introduce un id de socio:");
+				id_socio = Integer.parseInt(scan.nextLine());
+				System.out.println("Introduce un id de libro:");
+				id_libro = Integer.parseInt(scan.nextLine());
+				
+				pm.insert(new Prestamo(id_socio, id_libro, new Date(), false));
+				System.out.println("Prestamo realizado! socio: " + sm.select(id_socio).getNombre()+ ", libro: " + lm.select(id_libro).getTitulo());
 				break;
 				
 			case SALIR:

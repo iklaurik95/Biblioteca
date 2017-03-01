@@ -86,4 +86,19 @@ public class Socio_modelo extends Conector {
 		}
 		return null;
 	}
+	
+	public Socio selectSocioPorNombre (String nombre){
+		try {
+			Statement st = super.getConexion().createStatement();
+			ResultSet rs = st.executeQuery("select * from socios where nombre=" + nombre);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+	
+	
 }
